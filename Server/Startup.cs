@@ -24,7 +24,7 @@ namespace achraf.Server
             });
 
             services.AddDbContext<PatientdbContext>(
-       options => options.UseSqlServer("Server=localhost; Database=PatientDB; Trusted_Connection=True; MultipleActiveResultSets=True"));
+       options => options.UseSqlServer("Server=localhost; Database=PatientDB1; Trusted_Connection=True; MultipleActiveResultSets=True"));
           
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
