@@ -2,9 +2,13 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/achraf.Server",
+      "sslPort": 0
+    },
     "iisExpress": {
       "applicationUrl": "http://localhost:51889/",
-      "sslPort": 0
+      "sslPort": 44351
     }
   },
   "profiles": {

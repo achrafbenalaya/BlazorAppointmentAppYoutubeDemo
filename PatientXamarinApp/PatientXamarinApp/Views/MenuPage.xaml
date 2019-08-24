@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PatientXamarinApp.Views.MenuPage"
+             Title="Menu">
+
+    <Grid 
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="0*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="60*" />
+        </Grid.RowDefinitions>
+
+        <Grid 
+            Grid.Row="0">
+            <!--<Image 
+                Source="https://pbs.twimg.com/profile_images/471641515756769282/RDXWoY7W_400x400.png" 
+                Aspect="Fill"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand">
+            </Image>-->
+
+            <Label Text="&#xf7f2;" 
+                   FontSize="100"
+                   TextColor="SkyBlue"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"    
+                  >
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font" 
+                                iOS="Font Awesome 5 Free" 
+                                WinPhone="Assets/Font Awesome 5 Free-Solid-900.otf#Font" />
+                </Label.FontFamily>
+            </Label>
+
+
+
+            <!--Opacity="0.2"
+                BackgroundColor="#293849"
+                -->
+            <!--<Grid 
+                    BackgroundColor="White"
+                     Opacity="0.1"
+                    >
+                </Grid>-->
+
+        </Grid>
+
+
+
+        <Grid  
+        Grid.Row="3" Padding="5" >
+
+            <ListView x:Name="ListViewMenu"
+                    HasUnevenRows="True">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item 1</x:String>
+                    <x:String>Item 2</x:String>
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
+             mc:Ignorable="d"
+             x:Class="PatientXamarinApp.Views.EditGenders" Title="Edit" 
+             Visual="Material">
+
+    <!--<ContentPage.BindingContext>
+
+        <viewModels:EditGenderViewModel></viewModels:EditGenderViewModel>
+
+    </ContentPage.BindingContext>-->
+
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+
+        <Frame HasShadow="false"
+               Padding="10"
+               BorderColor="LightCoral"
+               Margin="30,30,30,10"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+<StackLayout>
+            <Label Text="&#xf228;" 
+                   FontSize="30"
+                   HeightRequest="30"
+                   TextColor="SkyBlue"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="StartAndExpand">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String"
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font" 
+                                iOS="Font Awesome 5 Free" 
+                                WinPhone="Assets/Font Awesome 5 Free-Solid-900.otf#Font" />
+                </Label.FontFamily>
+            </Label>
+
+    <Entry HorizontalOptions="FillAndExpand"
+           Keyboard="Text"
+           IsEnabled="False"
+           Text="{Binding TheSelectedGender.Name}"
+           
+           HorizontalTextAlignment="Center"
+           DisableLayout="True">
+
+    </Entry>
+
+<StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+<Label Text="Is Visible" VerticalOptions="Center"></Label>
+<CheckBox IsEnabled="False" 
+          IsChecked="{Binding TheSelectedGender.IsVisible}"
+></CheckBox>
+</StackLayout>
+    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <Label Text="Added on" VerticalOptions="Center"></Label>
+                    <Label x:Name="AddedTimeStatic" Text="{Binding TheSelectedGender.Urd}"></Label>
+    </StackLayout>
+
+            </StackLayout>
+
+        </Frame>
+
+
+
+        <StackLayout
+            Grid.Row="1"
+            Padding="20"
+            Grid.ColumnSpan="2">
+
+            <Entry Text="{Binding TheSelectedGender.Name}" 
+                   x:Name="GenderEntry"
+                   Margin="10">
+            </Entry>
+            <!--<CheckBox IsChecked="{Binding TheSelectedGender.IsVisible}"></CheckBox>-->
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Label Text="Visibility"
+                       FontSize="16" 
+                       VerticalOptions="Center"
+                       TextColor="#75849D">
+
+                </Label>
+                <Switch IsToggled="{Binding TheSelectedGender.IsVisible}"
+                x:Name="SwitchVisible"    >
+                </Switch>
+            </StackLayout>
+
+             
+            <Button Text="Edit"
+                    TextColor="White" 
+                    FontSize="Medium"
+                    Margin="10"
+                    BorderWidth="1"
+                    CornerRadius="25"
+                    Padding="12"
+                    BackgroundColor="#27A9E1"
+                    Command="{Binding EditGendersCOmmand}">
+
+            </Button>
+            <Button Text="Delete" 
+                    TextColor="White" 
+                    FontSize="Medium"
+                    Margin="10"
+                    BorderWidth="1"
+                    CornerRadius="25"
+                    Padding="12"
+                    BackgroundColor="#d11a2a"
+                    Command="{Binding DeleteGendersCOmmand}">
+
+            </Button>
+
+        </StackLayout>
+
+    </Grid>
+
+
+
+
+
+
+
+</ContentPage>
