@@ -3,17 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
-             mc:Ignorable="d" 
-             Visual="Material" 
-             Title="New"
-             x:Class="PatientXamarinApp.Views.AddGender">
-    <ContentPage.BindingContext>
-
-        <viewModels:AddGenderViewModel></viewModels:AddGenderViewModel>
-
-    </ContentPage.BindingContext>
-
+             mc:Ignorable="d"
+             Title="Edit"
+             x:Class="PatientXamarinApp.Views.EditExperiencePage">
 
     <Grid >
         <Grid.ColumnDefinitions>
@@ -35,10 +27,10 @@
                Grid.Column="0"
                Grid.ColumnSpan="2">
             <StackLayout>
-                <Label Text="&#xf228;" 
+                <Label Text="&#xf0c7;" 
                    FontSize="30"
                    HeightRequest="30"
-                   TextColor="SkyBlue"
+                   TextColor="DodgerBlue"
                    VerticalOptions="Start" 
                    HorizontalOptions="StartAndExpand">
                     <Label.FontFamily>
@@ -49,45 +41,25 @@
                     </Label.FontFamily>
                 </Label>
 
-                <!--<Entry HorizontalOptions="FillAndExpand"
+                <Entry HorizontalOptions="FillAndExpand"
            Keyboard="Text"
            IsEnabled="False"
-        
-           Text="{Binding TheSelectedGender.Name ,Mode=TwoWay}"
+           Text="{Binding TheSelectedxperience.Name}"
+           
            HorizontalTextAlignment="Center"
            DisableLayout="True">
 
-                </Entry>-->
-
-                <Label BindingContext="{x:Reference GenderEntry}" 
-                       HorizontalOptions="FillAndExpand" 
-                       IsEnabled="False" 
-                       TextColor="Black"
-                       Text="{Binding Text}"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Center">
-
-                </Label>
+                </Entry>
 
                 <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Is Visible"
-                           VerticalOptions="Center"
-                        TextColor="#75849D"
-                           >
-
-                    </Label>
+                    <Label Text="Is Visible" VerticalOptions="Center"></Label>
                     <CheckBox IsEnabled="False" 
-                     x:Name="IamVisible"></CheckBox>
+          IsChecked="{Binding TheSelectedxperience.IsVisible}"
+></CheckBox>
                 </StackLayout>
                 <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Added on"
-                           VerticalOptions="Center" 
-                           x:Name="addedTime"
-                           TextColor="#75849D"
-                           >
-
-                    </Label>
-                    <Label x:Name="AddedTimeStatic" ></Label>
+                    <Label Text="Added on" VerticalOptions="Center"></Label>
+                    <Label x:Name="AddedTimeStatic" Text="{Binding TheSelectedxperience.Urd}"></Label>
                 </StackLayout>
 
             </StackLayout>
@@ -99,49 +71,48 @@
         <StackLayout
             Grid.Row="1"
             Padding="20"
-
             Grid.ColumnSpan="2">
 
-            <Entry Text="{Binding TheSelectedGender.Name}" 
-                   x:Name="GenderEntry"
+            <Entry Text="{Binding TheSelectedxperience.Name}" 
+                  
                    Margin="10">
             </Entry>
-            <!--<CheckBox IsChecked="{Binding TheSelectedGender.IsVisible}"></CheckBox>-->
-
-
+            <!--<CheckBox IsChecked="{Binding TheSelectedxperience.IsVisible}"></CheckBox>-->
             <StackLayout Orientation="Horizontal" Spacing="20">
                 <Label Text="Visibility"
                        FontSize="16" 
                        VerticalOptions="Center"
-                       TextColor="{StaticResource PrimaryDark}">
+                       TextColor="#75849D">
 
                 </Label>
-                <Switch IsToggled="{Binding TheSelectedGender.IsVisible}"
-                x:Name="SwitchVisible"  Toggled="SwitchVisible_OnToggled" >
-
-            </Switch>
+                <Switch IsToggled="{Binding TheSelectedxperience.IsVisible}"
+                x:Name="SwitchVisible"    >
+                </Switch>
             </StackLayout>
 
-            <Button Style="{StaticResource ButtonAddStyle}"
-                    Text="Add" 
-                    Margin="10"
-                    Padding="15"
-                    Command="{Binding sendGendersCOmmand}">
 
-            </Button>
-            <!--<Button Style="{StaticResource ButtonAddStyle}"
-                
-                    Text="Add" 
+            <Button Text="Edit"
                     TextColor="White" 
                     FontSize="Medium"
                     Margin="10"
                     BorderWidth="1"
-                    CornerRadius="26"
-                    Padding="15"
-                    BackgroundColor="#03DAC6"
-                    Command="{Binding sendGendersCOmmand}">
+                    CornerRadius="25"
+                    Padding="12"
+                    BackgroundColor="#27A9E1"
+                    Command="{Binding EditExperienceCommand}">
 
-            </Button>-->
+            </Button>
+            <Button Text="Delete" 
+                    TextColor="White" 
+                    FontSize="Medium"
+                    Margin="10"
+                    BorderWidth="1"
+                    CornerRadius="25"
+                    Padding="12"
+                    BackgroundColor="#d11a2a"
+                    Command="{Binding DeleteExperienceCommand}">
+
+            </Button>
 
         </StackLayout>
 
@@ -149,6 +120,7 @@
 
 
 
-    
+
+
 
 </ContentPage>

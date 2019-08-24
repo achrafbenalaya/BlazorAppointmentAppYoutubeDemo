@@ -42,16 +42,16 @@ namespace PatientXamarinApp.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.BloodGroup:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new BloodGroupsPage()));
                         break;
                     case (int)MenuItemType.Department:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Experience:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new ExperiencePage()));
                         break;
                     case (int)MenuItemType.Gender:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new Genders()));
                         break;
 
                     case (int)MenuItemType.Browse:

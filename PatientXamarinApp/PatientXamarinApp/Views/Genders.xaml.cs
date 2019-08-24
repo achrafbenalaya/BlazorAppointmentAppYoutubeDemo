@@ -15,6 +15,7 @@ namespace PatientXamarinApp.Views
         public Genders()
         {
             InitializeComponent();
+            
         }
 
 

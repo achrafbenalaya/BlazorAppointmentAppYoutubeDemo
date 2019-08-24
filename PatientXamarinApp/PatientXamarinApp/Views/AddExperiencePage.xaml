@@ -4,13 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
-             mc:Ignorable="d" 
-             Visual="Material" 
+             mc:Ignorable="d"
              Title="New"
-             x:Class="PatientXamarinApp.Views.AddGender">
+             Visual="Material" 
+             x:Class="PatientXamarinApp.Views.AddExperiencePage">
+
     <ContentPage.BindingContext>
 
-        <viewModels:AddGenderViewModel></viewModels:AddGenderViewModel>
+        <viewModels:AddExperienceViewModel></viewModels:AddExperienceViewModel>
 
     </ContentPage.BindingContext>
 
@@ -35,10 +36,10 @@
                Grid.Column="0"
                Grid.ColumnSpan="2">
             <StackLayout>
-                <Label Text="&#xf228;" 
+                <Label Text="&#xf0c7;" 
                    FontSize="30"
                    HeightRequest="30"
-                   TextColor="SkyBlue"
+                   TextColor="DodgerBlue"
                    VerticalOptions="Start" 
                    HorizontalOptions="StartAndExpand">
                     <Label.FontFamily>
@@ -49,17 +50,9 @@
                     </Label.FontFamily>
                 </Label>
 
-                <!--<Entry HorizontalOptions="FillAndExpand"
-           Keyboard="Text"
-           IsEnabled="False"
-        
-           Text="{Binding TheSelectedGender.Name ,Mode=TwoWay}"
-           HorizontalTextAlignment="Center"
-           DisableLayout="True">
 
-                </Entry>-->
 
-                <Label BindingContext="{x:Reference GenderEntry}" 
+                <Label BindingContext="{x:Reference ExperienceEntry}" 
                        HorizontalOptions="FillAndExpand" 
                        IsEnabled="False" 
                        TextColor="Black"
@@ -102,11 +95,10 @@
 
             Grid.ColumnSpan="2">
 
-            <Entry Text="{Binding TheSelectedGender.Name}" 
-                   x:Name="GenderEntry"
+            <Entry Text="{Binding TheSelectedexperience.Name}" 
+                   x:Name="ExperienceEntry"
                    Margin="10">
             </Entry>
-            <!--<CheckBox IsChecked="{Binding TheSelectedGender.IsVisible}"></CheckBox>-->
 
 
             <StackLayout Orientation="Horizontal" Spacing="20">
@@ -116,32 +108,20 @@
                        TextColor="{StaticResource PrimaryDark}">
 
                 </Label>
-                <Switch IsToggled="{Binding TheSelectedGender.IsVisible}"
+                <Switch IsToggled="{Binding TheSelectedexperience.IsVisible}"
                 x:Name="SwitchVisible"  Toggled="SwitchVisible_OnToggled" >
 
-            </Switch>
+                </Switch>
             </StackLayout>
 
             <Button Style="{StaticResource ButtonAddStyle}"
                     Text="Add" 
                     Margin="10"
                     Padding="15"
-                    Command="{Binding sendGendersCOmmand}">
+                    Command="{Binding SendExperienceCommand}">
 
             </Button>
-            <!--<Button Style="{StaticResource ButtonAddStyle}"
-                
-                    Text="Add" 
-                    TextColor="White" 
-                    FontSize="Medium"
-                    Margin="10"
-                    BorderWidth="1"
-                    CornerRadius="26"
-                    Padding="15"
-                    BackgroundColor="#03DAC6"
-                    Command="{Binding sendGendersCOmmand}">
 
-            </Button>-->
 
         </StackLayout>
 
@@ -149,6 +129,9 @@
 
 
 
-    
+
+
+
+
 
 </ContentPage>

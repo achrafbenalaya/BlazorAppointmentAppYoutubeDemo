@@ -10,19 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace PatientXamarinApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddGender : ContentPage
+    public partial class AddExperiencePage : ContentPage
     {
-        public AddGender()
+        public AddExperiencePage()
         {
             InitializeComponent();
             AddedTimeStatic.Text = System.DateTime.Now.ToShortDateString();
-            
         }
 
         private void SwitchVisible_OnToggled(object sender, ToggledEventArgs e)
         {
             IamVisible.IsChecked = !(IamVisible.IsChecked);
-
         }
     }
 }

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
+             mc:Ignorable="d"
+             Visual="Material" 
+             Title="Blood"
+             x:Class="PatientXamarinApp.Views.BloodGroupsPage">
+    <ContentPage.BindingContext>
+
+        <viewModels:BloodGroupsViewModel></viewModels:BloodGroupsViewModel>
+
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="GoToAddBloodGroups" />
+    </ContentPage.ToolbarItems>
+
+
+    <ListView
+    x:Name="BloodGroupsListView"
+    HasUnevenRows="True"
+    ItemsSource="{Binding _BloodGroups}"
+    ItemTapped="BloodGListView_OnItemTapped"
+    IsPullToRefreshEnabled="True"
+    RefreshCommand="{Binding GetBloodGroupsCommand}"
+    IsRefreshing="{Binding isRefresh}">
+        <ListView.Header>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="ID"  TextColor="Red" FontSize="Small" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Center"/>
+                <Label Text="Name" TextColor="Red" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Urd" TextColor="Red" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Visible" TextColor="Red" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            </Grid>
+        </ListView.Header>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+
+
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding BloodGroupsId}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Name}"  Grid.Column="1"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Urd}"  Grid.Column="2"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+                        <CheckBox IsChecked="{Binding IsVisible}" IsEnabled="False"  Grid.Column="3"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></CheckBox>
+
+                    </Grid>
+
+
+                </ViewCell>
+
+
+            </DataTemplate>
+
+        </ListView.ItemTemplate>
+    </ListView>
+
+
+</ContentPage>

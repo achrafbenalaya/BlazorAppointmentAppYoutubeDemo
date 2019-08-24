@@ -4,16 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
-             mc:Ignorable="d" 
-             Visual="Material" 
+             mc:Ignorable="d"
              Title="New"
-             x:Class="PatientXamarinApp.Views.AddGender">
+             x:Class="PatientXamarinApp.Views.AddBloodGroupsPage">
     <ContentPage.BindingContext>
 
-        <viewModels:AddGenderViewModel></viewModels:AddGenderViewModel>
+        <viewModels:AddBloodGroupsViewModel></viewModels:AddBloodGroupsViewModel>
 
     </ContentPage.BindingContext>
-
 
     <Grid >
         <Grid.ColumnDefinitions>
@@ -35,10 +33,10 @@
                Grid.Column="0"
                Grid.ColumnSpan="2">
             <StackLayout>
-                <Label Text="&#xf228;" 
+                <Label Text="&#xf043;" 
                    FontSize="30"
                    HeightRequest="30"
-                   TextColor="SkyBlue"
+                   TextColor="Red"
                    VerticalOptions="Start" 
                    HorizontalOptions="StartAndExpand">
                     <Label.FontFamily>
@@ -49,17 +47,7 @@
                     </Label.FontFamily>
                 </Label>
 
-                <!--<Entry HorizontalOptions="FillAndExpand"
-           Keyboard="Text"
-           IsEnabled="False"
-        
-           Text="{Binding TheSelectedGender.Name ,Mode=TwoWay}"
-           HorizontalTextAlignment="Center"
-           DisableLayout="True">
-
-                </Entry>-->
-
-                <Label BindingContext="{x:Reference GenderEntry}" 
+                <Label BindingContext="{x:Reference BloodGroupEntry}" 
                        HorizontalOptions="FillAndExpand" 
                        IsEnabled="False" 
                        TextColor="Black"
@@ -102,11 +90,11 @@
 
             Grid.ColumnSpan="2">
 
-            <Entry Text="{Binding TheSelectedGender.Name}" 
-                   x:Name="GenderEntry"
+            <Entry Text="{Binding TheSelectedBloodGroup.Name}" 
+                   x:Name="BloodGroupEntry"
                    Margin="10">
             </Entry>
-            <!--<CheckBox IsChecked="{Binding TheSelectedGender.IsVisible}"></CheckBox>-->
+            <!--<CheckBox IsChecked="{Binding TheSelectedBloodGroup.IsVisible}"></CheckBox>-->
 
 
             <StackLayout Orientation="Horizontal" Spacing="20">
@@ -116,39 +104,23 @@
                        TextColor="{StaticResource PrimaryDark}">
 
                 </Label>
-                <Switch IsToggled="{Binding TheSelectedGender.IsVisible}"
+                <Switch IsToggled="{Binding TheSelectedBloodGroup.IsVisible}"
                 x:Name="SwitchVisible"  Toggled="SwitchVisible_OnToggled" >
 
-            </Switch>
+                </Switch>
             </StackLayout>
 
             <Button Style="{StaticResource ButtonAddStyle}"
                     Text="Add" 
                     Margin="10"
                     Padding="15"
-                    Command="{Binding sendGendersCOmmand}">
+                    Command="{Binding SendBloodGroupsCommand}">
 
             </Button>
-            <!--<Button Style="{StaticResource ButtonAddStyle}"
-                
-                    Text="Add" 
-                    TextColor="White" 
-                    FontSize="Medium"
-                    Margin="10"
-                    BorderWidth="1"
-                    CornerRadius="26"
-                    Padding="15"
-                    BackgroundColor="#03DAC6"
-                    Command="{Binding sendGendersCOmmand}">
 
-            </Button>-->
 
         </StackLayout>
 
     </Grid>
-
-
-
-    
 
 </ContentPage>
