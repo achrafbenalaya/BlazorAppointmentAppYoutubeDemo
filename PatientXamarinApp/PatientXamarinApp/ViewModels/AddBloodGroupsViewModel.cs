@@ -19,14 +19,12 @@ namespace PatientXamarinApp.ViewModels
             TheSelectedBloodGroup = new BloodGroups();
         }
 
-
-
         public ICommand SendBloodGroupsCommand => new Command(async () =>
 
         {
             TheSelectedBloodGroup.Urd = System.DateTime.Now.ToShortDateString();
             await _dataServices.PostBloodGroup(TheSelectedBloodGroup);
-            await Application.Current.MainPage.Navigation.PopAsync();
+            //await Application.Current.MainPage.Navigation.PopAsync();
         });
 
 

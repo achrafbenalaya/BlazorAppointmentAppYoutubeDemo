@@ -15,6 +15,7 @@ namespace PatientXamarinApp.Services
        private string GenderUrl = "https://achraf-server.conveyor.cloud/api/genders/";
        private string BloodGrouperUrl = "https://achraf-server.conveyor.cloud/api/BloodGroups/";
        private string ExperiencerUrl = "https://achraf-server.conveyor.cloud/api/experiences/";
+       private string DepartmentsUrl = "https://achraf-server.conveyor.cloud/api/Departments/";
 
 
         #region Genders
@@ -187,6 +188,79 @@ namespace PatientXamarinApp.Services
 
         #endregion
 
+
+
+
+        #region Departments
+
+
+        public async Task<List<Departments>> GetDepartments()
+        {
+
+            var HttpClient = new HttpClient();
+            var Json = await HttpClient.GetStringAsync(DepartmentsUrl);
+            var departments = JsonConvert.DeserializeObject<List<Departments>>(Json);
+
+            return departments;
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="departments"></param>
+        /// <returns></returns>
+        public async Task PostDepartments(Departments departments)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(departments);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PostAsync(DepartmentsUrl, content);
+
+
+
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="experience"></param>
+        /// <returns></returns>
+        public async Task PutDepartments(int id, Departments experience)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(experience);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(DepartmentsUrl + id, content);
+
+
+
+        }
+
+        /// <summary>
+        /// Delete Department passing ID in param
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task DeleteDepartments(int id)
+        {
+
+            var HttpClient = new HttpClient();
+            var responsen = await HttpClient.DeleteAsync(DepartmentsUrl + id);
+
+        }
+
+
+        #endregion
 
     }
 }
