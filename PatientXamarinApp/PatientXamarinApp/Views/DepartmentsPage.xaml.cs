@@ -20,7 +20,7 @@ namespace PatientXamarinApp.Views
         private async void DepartmentsListView_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var _departments = e.Item as Models.Departments;
-            Navigation.PushAsync(new EditDepartmentsPage());
+            Navigation.PushAsync(new EditDepartmentsPage(_departments));
         }
 
         private async void GoToAddDept(object sender, EventArgs e)

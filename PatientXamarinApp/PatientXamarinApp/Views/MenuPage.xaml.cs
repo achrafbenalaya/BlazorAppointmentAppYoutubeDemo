@@ -21,7 +21,7 @@ namespace PatientXamarinApp.Views
             menuItems = new List<HomeMenuItem>
             {
 
-                new HomeMenuItem {Id = MenuItemType.Appointment, Title="Appointment" },
+                new HomeMenuItem {Id = MenuItemType.Appointment, Title="Appointment", },
                 new HomeMenuItem {Id = MenuItemType.Doctor, Title="Doctor" },
                 new HomeMenuItem {Id = MenuItemType.Patient, Title="Patient" },
                 new HomeMenuItem {Id = MenuItemType.Experience, Title="Experience" },

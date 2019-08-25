@@ -6,9 +6,126 @@
              xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
              mc:Ignorable="d"
              Visual="Material" 
-             Title="ADD"
+             Title="New"
              x:Class="PatientXamarinApp.Views.AddDepartmentsPage">
 
+
+    <ContentPage.BindingContext>
+
+        <viewModels:AddDepartmentsViewModel></viewModels:AddDepartmentsViewModel>
+
+    </ContentPage.BindingContext>
+
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+
+        <Frame HasShadow="false"
+               Padding="10"
+               BorderColor="LightCoral"
+               Margin="30,30,30,10"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+            <StackLayout>
+                <Label Text="&#xf1ad;" 
+                   FontSize="30"
+                   HeightRequest="30"
+                   TextColor="SkyBlue"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="StartAndExpand">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font" 
+                                iOS="Font Awesome 5 Free" 
+                                WinPhone="Assets/Font Awesome 5 Free-Solid-900.otf#Font" />
+                    </Label.FontFamily>
+                </Label>
+
+
+                <Label BindingContext="{x:Reference DepartmentsEntry}" 
+                       HorizontalOptions="FillAndExpand" 
+                       IsEnabled="False" 
+                       TextColor="Black"
+                       Text="{Binding Text}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center">
+
+                </Label>
+
+                <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Is Visible"
+                           VerticalOptions="Center"
+                        TextColor="#75849D"
+                           >
+
+                    </Label>
+                    <CheckBox IsEnabled="False" 
+                     x:Name="IamVisible"></CheckBox>
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Added on"
+                           VerticalOptions="Center" 
+                           x:Name="addedTime"
+                           TextColor="#75849D"
+                           >
+
+                    </Label>
+                    <Label x:Name="AddedTimeStatic" ></Label>
+                </StackLayout>
+
+            </StackLayout>
+
+        </Frame>
+
+
+
+        <StackLayout
+            Grid.Row="1"
+            Padding="20"
+
+            Grid.ColumnSpan="2">
+
+            <Entry Text="{Binding TheSelectedDepartments.Name}" 
+                   x:Name="DepartmentsEntry"
+                   Margin="10">
+            </Entry>
+       
+
+
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Label Text="Visibility"
+                       FontSize="16" 
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource PrimaryDark}">
+
+                </Label>
+                <Switch IsToggled="{Binding TheSelectedDepartments.IsVisible}"
+                x:Name="SwitchVisible"  Toggled="SwitchVisible_OnToggled" >
+
+                </Switch>
+            </StackLayout>
+
+            <Button Style="{StaticResource ButtonAddStyle}"
+                    Text="Add" 
+                    Margin="10"
+                    Padding="15"
+                    Command="{Binding SendDepartmentsCommand}">
+
+            </Button>
+
+        </StackLayout>
+
+    </Grid>
 
 
 

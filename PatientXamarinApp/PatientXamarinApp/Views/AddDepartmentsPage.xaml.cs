@@ -15,8 +15,13 @@ namespace PatientXamarinApp.Views
         public AddDepartmentsPage()
         {
             InitializeComponent();
+            AddedTimeStatic.Text = System.DateTime.Now.ToShortDateString();
         }
 
-  
+
+        private void SwitchVisible_OnToggled(object sender, ToggledEventArgs e)
+        {
+            IamVisible.IsChecked = !(IamVisible.IsChecked);
+        }
     }
 }

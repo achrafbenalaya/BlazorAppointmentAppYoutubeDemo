@@ -25,7 +25,7 @@
     <ListView
     x:Name="GenderListView"
     HasUnevenRows="True"
-    ItemsSource="{Binding __DepartmentsList}"
+    ItemsSource="{Binding _DepartmentsList}"
     ItemTapped="DepartmentsListView_OnItemTapped"
     IsPullToRefreshEnabled="True"
     RefreshCommand="{Binding GetDepartmentsCommand}"

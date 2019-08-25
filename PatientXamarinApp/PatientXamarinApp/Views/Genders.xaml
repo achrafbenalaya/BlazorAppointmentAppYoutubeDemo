@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
-             mc:Ignorable="d" Visual="Material" 
+             mc:Ignorable="d" 
+             Visual="Material" 
              Title="Gender"
              x:Class="PatientXamarinApp.Views.Genders">
 <ContentPage.BindingContext>

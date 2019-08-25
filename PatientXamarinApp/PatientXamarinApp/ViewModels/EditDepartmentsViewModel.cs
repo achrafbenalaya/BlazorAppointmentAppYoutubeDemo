@@ -21,7 +21,6 @@ namespace PatientXamarinApp.ViewModels
             TheSelectedDepartments.Urd = System.DateTime.Now.ToShortDateString();
             await _dataServices.PutDepartments(TheSelectedDepartments.DepartmentsId, TheSelectedDepartments);
 
-
         });
 
         public ICommand DeleteDepartmentsCommand => new Command(async () =>
