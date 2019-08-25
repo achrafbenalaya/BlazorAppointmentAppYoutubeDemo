@@ -6,11 +6,7 @@ using System.Windows.Input;
 using PatientXamarinApp.Models;
 using PatientXamarinApp.Services;
 using Xamarin.Forms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PatientXamarinApp.ViewModels
 {
@@ -31,7 +27,6 @@ namespace PatientXamarinApp.ViewModels
         {
             TheSelectedGender.Urd = System.DateTime.Now.ToShortDateString();
             await _dataServices.PostGenders(TheSelectedGender);
-            await Application.Current.MainPage.Navigation.PopAsync();
         });
 
 

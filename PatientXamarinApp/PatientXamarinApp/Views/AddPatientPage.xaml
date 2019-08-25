@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
+             mc:Ignorable="d"
+             Title="New"
+             Visual="Material" 
+             x:Class="PatientXamarinApp.Views.AddPatientPage">
+
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+
+        <Frame HasShadow="false"
+               Padding="10"
+               BorderColor="LightCoral"
+               Margin="10,10,10,2"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+            <StackLayout>
+                <Label Text="&#xf043;" 
+                   FontSize="30"
+                   HeightRequest="30"
+                   TextColor="Red"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="StartAndExpand">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font" 
+                                iOS="Font Awesome 5 Free" 
+                                WinPhone="Assets/Font Awesome 5 Free-Solid-900.otf#Font" />
+                    </Label.FontFamily>
+                </Label>
+
+                <Label BindingContext="{x:Reference PatientEntry}" 
+                       HorizontalOptions="FillAndExpand" 
+                       IsEnabled="False" 
+                       TextColor="Black"
+                       Text="{Binding Text}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center">
+
+                </Label>
+
+                <StackLayout Margin="5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Is Visible"
+                           VerticalOptions="Center"
+                        TextColor="#75849D"
+                           >
+
+                    </Label>
+                    <CheckBox IsEnabled="False" 
+                     x:Name="IamVisible"></CheckBox>
+                </StackLayout>
+
+            </StackLayout>
+
+        </Frame>
+
+
+
+        <StackLayout
+            Grid.Row="1"
+            Padding="20"
+
+            Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+
+                <Label Grid.Row="0" Grid.Column="0" 
+                       Text="First Name" VerticalOptions="Center">
+                </Label>
+                <Entry Grid.Row="0" Grid.Column="1" 
+                       Text="{Binding TheSelectedPatient.FirstName}" 
+                       x:Name="PatientEntry"
+                       Margin="10">
+                </Entry>
+
+
+                <Label Grid.Row="1" Grid.Column="0" 
+                       Text="Last Name" VerticalOptions="Center">
+                </Label>
+                <Entry Grid.Row="1" Grid.Column="1" 
+                       
+                       x:Name="PatientEntryLastName"
+                       Margin="10">
+                </Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" 
+                       Text="Gender" VerticalOptions="Center"/>
+
+                <Picker x:Name="PickerGender"
+                        SelectedIndexChanged="PickerGender_OnSelectedIndexChanged"
+                        
+                       
+                        
+                        Grid.Row="2" 
+                        ItemDisplayBinding="{Binding Name}"
+                        Grid.Column="1">
+
+                </Picker>
+
+                <Label Grid.Row="3" Grid.Column="0" 
+                       Text="Gender" VerticalOptions="Center"/>
+
+                <Picker x:Name="PickerBlood"
+                        
+                        
+                        SelectedIndexChanged="PickerBlood_OnSelectedIndexChanged"
+
+                        ItemDisplayBinding="{Binding Name}"
+                        Grid.Row="3" Grid.Column="1">
+
+                </Picker>
+
+            </Grid>
+
+
+
+
+
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Label Text="Visibility"
+                       FontSize="16" 
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource PrimaryDark}">
+
+                </Label>
+                <Switch IsToggled="{Binding TheSelectedPatient.IsVisible}"
+                     x:Name="SwitchVisible"  Toggled="SwitchVisible_OnToggled" >
+
+                </Switch>
+            </StackLayout>
+            <!--<Label Text="hi" 
+                   
+                   BindingContext="{Binding GendersId}"
+                   IsVisible="True" 
+                   x:Name="BindingtheGender" 
+                   TextColor="Black" 
+                   BackgroundColor="Red"/>-->
+            <Entry Keyboard="Numeric" 
+                   Text="{Binding TheSelectedPatient.gendersId}"
+                   
+                   IsVisible="True" 
+                   x:Name="BindingtheGender" 
+                   TextColor="Black" 
+                   BackgroundColor="Red">
+
+            </Entry>
+
+
+            <Label Text="{Binding BloodGroupsId,Mode=OneWayToSource}"
+                   IsVisible="True"
+                   x:Name="BindingthBloodItem"  
+                   TextColor="Black"
+                   BackgroundColor="Red"/>
+         
+            <Button Style="{StaticResource ButtonAddStyle}"
+                    Text="Add" 
+                    Margin="10"
+                    Padding="15"
+                    Command="{Binding SendPatientsCommand}">
+
+            </Button>
+
+
+        </StackLayout>
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

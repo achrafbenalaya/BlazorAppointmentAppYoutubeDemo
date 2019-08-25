@@ -16,6 +16,7 @@ namespace PatientXamarinApp.Services
        private string BloodGrouperUrl = Constants.BloodGroupsLink;
        private string ExperiencerUrl = Constants.ExperienceLink;
        private string DepartmentsUrl = Constants.DepartmentsLink;
+       private string PatientsUrl = Constants.PatientsLink;
 
 
         #region Genders
@@ -232,12 +233,12 @@ namespace PatientXamarinApp.Services
         /// <param name="id"></param>
         /// <param name="experience"></param>
         /// <returns></returns>
-        public async Task PutDepartments(int id, Departments experience)
+        public async Task PutDepartments(int id, Departments departments)
 
         {
 
             var httpClient = new HttpClient();
-            var jsonObject = JsonConvert.SerializeObject(experience);
+            var jsonObject = JsonConvert.SerializeObject(departments);
             StringContent content = new StringContent(jsonObject);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await httpClient.PutAsync(DepartmentsUrl + id, content);
@@ -261,6 +262,75 @@ namespace PatientXamarinApp.Services
 
 
         #endregion
+
+
+
+        #region Patients
+
+        public async Task<List<Patients>> GetPatients()
+        {
+
+            var HttpClient = new HttpClient();
+            var Json = await HttpClient.GetStringAsync(PatientsUrl);
+            var patients = JsonConvert.DeserializeObject<List<Patients>>(Json);
+
+            return patients;
+        }
+
+
+
+  
+        public async Task PostPatients(Patients _patients)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(_patients);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PostAsync(PatientsUrl, content);
+
+
+
+        }
+
+
+   
+        public async Task PutPatients(int id, Patients patients)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(patients);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(PatientsUrl + id, content);
+
+
+
+        }
+
+    
+        public async Task DeletePatients(int id)
+        {
+
+            var HttpClient = new HttpClient();
+            var responsen = await HttpClient.DeleteAsync(PatientsUrl + id);
+
+        }
+
+
+
+
+        #endregion
+
+
+
+
+
+
+
+
 
     }
 }

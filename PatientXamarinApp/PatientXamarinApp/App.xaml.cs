@@ -15,7 +15,8 @@ namespace PatientXamarinApp
 
             DependencyService.Register<MockDataStore>();
              MainPage = new MainPage();
-            //MainPage = new NavigationPage(new BloodGroupsPage()); 
+           // MainPage = new NavigationPage(new PatientsPage()); 
+            //MainPage = new NavigationPage(new testpicker()); 
         }
 
         protected override void OnStart()

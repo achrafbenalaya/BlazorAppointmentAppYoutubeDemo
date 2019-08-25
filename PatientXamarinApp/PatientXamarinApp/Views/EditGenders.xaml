@@ -8,12 +8,6 @@
              x:Class="PatientXamarinApp.Views.EditGenders" Title="Edit" 
              Visual="Material">
 
-    <!--<ContentPage.BindingContext>
-
-        <viewModels:EditGenderViewModel></viewModels:EditGenderViewModel>
-
-    </ContentPage.BindingContext>-->
-
 
     <Grid >
         <Grid.ColumnDefinitions>
@@ -34,22 +28,22 @@
                Grid.Row="0"
                Grid.Column="0"
                Grid.ColumnSpan="2">
-<StackLayout>
-            <Label Text="&#xf228;" 
+            <StackLayout>
+                <Label Text="&#xf228;" 
                    FontSize="30"
                    HeightRequest="30"
                    TextColor="SkyBlue"
                    VerticalOptions="Start" 
                    HorizontalOptions="StartAndExpand">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String"
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String"
                                 Android="Font Awesome 5 Free-Solid-900.otf#Font" 
                                 iOS="Font Awesome 5 Free" 
                                 WinPhone="Assets/Font Awesome 5 Free-Solid-900.otf#Font" />
-                </Label.FontFamily>
-            </Label>
+                    </Label.FontFamily>
+                </Label>
 
-    <Entry HorizontalOptions="FillAndExpand"
+                <Entry HorizontalOptions="FillAndExpand"
            Keyboard="Text"
            IsEnabled="False"
            Text="{Binding TheSelectedGender.Name}"
@@ -57,18 +51,18 @@
            HorizontalTextAlignment="Center"
            DisableLayout="True">
 
-    </Entry>
+                </Entry>
 
-<StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-<Label Text="Is Visible" VerticalOptions="Center"></Label>
-<CheckBox IsEnabled="False" 
+                <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Is Visible" VerticalOptions="Center"></Label>
+                    <CheckBox IsEnabled="False" 
           IsChecked="{Binding TheSelectedGender.IsVisible}"
-></CheckBox>
-</StackLayout>
-    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-        <Label Text="Added on" VerticalOptions="Center"></Label>
+            ></CheckBox>
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Added on" VerticalOptions="Center"></Label>
                     <Label x:Name="AddedTimeStatic" Text="{Binding TheSelectedGender.Urd}"></Label>
-    </StackLayout>
+                </StackLayout>
 
             </StackLayout>
 

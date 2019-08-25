@@ -25,7 +25,8 @@ namespace achraf.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Patients>>> GetPatient()
         {
-            return await _context.Patient.ToListAsync();
+
+            return await _context.Patient.Include(m=>m.BloodGroup).Include(x=>x.Gender).ToListAsync();
         }
 
         // GET: api/Patients/5

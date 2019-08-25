@@ -5,31 +5,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:PatientXamarinApp.ViewModels;assembly=PatientXamarinApp"
              mc:Ignorable="d"
-             Title="Departments"
-             x:Class="PatientXamarinApp.Views.DepartmentsPage">
-
-
-
+             Title="Patient"
+             Visual="Material"
+             x:Class="PatientXamarinApp.Views.PatientsPage">
 
     <ContentPage.BindingContext>
 
-        <viewModels:DepartmentsViewModel></viewModels:DepartmentsViewModel>
+        <viewModels:PatientsViewModel></viewModels:PatientsViewModel>
 
     </ContentPage.BindingContext>
 
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="GoToAddDept" />
+        <ToolbarItem Text="Add" Clicked="GoToAddPatients" />
     </ContentPage.ToolbarItems>
 
 
+
     <ListView
-    x:Name="GenderListView"
+    x:Name="BloodGroupsListView"
     HasUnevenRows="True"
-    ItemsSource="{Binding _DepartmentsList}"
-    ItemTapped="DepartmentsListView_OnItemTapped"
+    ItemsSource="{Binding _patientsList}"
+    ItemTapped="PatientsListView_OnItemTapped"
     IsPullToRefreshEnabled="True"
-    RefreshCommand="{Binding GetDepartmentsCommand}"
+    RefreshCommand="{Binding GetPatientsCommand}"
     IsRefreshing="{Binding isRefresh}">
         <ListView.Header>
             <Grid >
@@ -38,14 +37,17 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+         
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Text="ID"  TextColor="Red" FontSize="Small" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Center"/>
+                <Label Text="Phone"  TextColor="Red" FontSize="Small" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
                 <Label Text="Name" TextColor="Red" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <Label Text="Urd" TextColor="Red" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <Label Text="Visible" TextColor="Red" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <Label Text="Gender" TextColor="Red" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Blood" TextColor="Red" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Visible" TextColor="Red" Grid.Column="4" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
             </Grid>
         </ListView.Header>
 
@@ -60,16 +62,20 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
-
+                            <ColumnDefinition />
+                       
                         </Grid.ColumnDefinitions>
-                        <Label Text="{Binding DepartmentsId}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
-                        <Label Text="{Binding Name}"  Grid.Column="1"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
-                        <Label Text="{Binding Urd}"  Grid.Column="2"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
-                        <CheckBox IsChecked="{Binding IsVisible}" IsEnabled="False"  Grid.Column="3"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></CheckBox>
+                        <Label Text="{Binding PhoneNumber}" Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                        <Label Text="{Binding FirstName}"  Grid.Column="1"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Gender.Name}"  Grid.Column="2"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <Label Text="{Binding BloodGroup.Name}"  Grid.Column="3"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <CheckBox IsChecked="{Binding IsVisible}" IsEnabled="False"  Grid.Column="4"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></CheckBox>
 
                     </Grid>
 
+
                 </ViewCell>
+
 
             </DataTemplate>
 
