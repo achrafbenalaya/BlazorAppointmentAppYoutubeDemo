@@ -11,11 +11,11 @@ namespace PatientXamarinApp.Services
 {
    public class DataServices
    {
-       //private string GenderUrl = "https://192.168.1.9:45457/api/Genders";
-       private string GenderUrl = "https://achraf-server.conveyor.cloud/api/genders/";
-       private string BloodGrouperUrl = "https://achraf-server.conveyor.cloud/api/BloodGroups/";
-       private string ExperiencerUrl = "https://achraf-server.conveyor.cloud/api/experiences/";
-       private string DepartmentsUrl = "https://achraf-server.conveyor.cloud/api/Departments/";
+
+       private string GenderUrl = Constants.GenderLink;
+       private string BloodGrouperUrl = Constants.BloodGroupsLink;
+       private string ExperiencerUrl = Constants.ExperienceLink;
+       private string DepartmentsUrl = Constants.DepartmentsLink;
 
 
         #region Genders

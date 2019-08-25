@@ -25,6 +25,23 @@
                 <Setter Property="BackgroundColor" Value="#03DAC6" />
             </Style>
 
+            <Style x:Key="ButtonAEditStyle"  TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="26" />
+                <Setter Property="BackgroundColor" Value="#27A9E1" />
+            </Style>
+
+            <Style x:Key="ButtonDeleteStyle"  TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="26" />
+                <Setter Property="BackgroundColor" Value="#d11a2a" />
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

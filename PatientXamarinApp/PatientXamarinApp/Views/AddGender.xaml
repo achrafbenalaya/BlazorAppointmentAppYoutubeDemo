@@ -129,19 +129,7 @@
                     Command="{Binding sendGendersCOmmand}">
 
             </Button>
-            <!--<Button Style="{StaticResource ButtonAddStyle}"
-                
-                    Text="Add" 
-                    TextColor="White" 
-                    FontSize="Medium"
-                    Margin="10"
-                    BorderWidth="1"
-                    CornerRadius="26"
-                    Padding="15"
-                    BackgroundColor="#03DAC6"
-                    Command="{Binding sendGendersCOmmand}">
 
-            </Button>-->
 
         </StackLayout>
 

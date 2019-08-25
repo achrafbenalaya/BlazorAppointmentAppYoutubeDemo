@@ -98,26 +98,19 @@
                 </Switch>
             </StackLayout>
 
-             
-            <Button Text="Edit"
-                    TextColor="White" 
-                    FontSize="Medium"
+
+            <Button Style="{StaticResource ButtonAEditStyle}"
+                    Text="Edit"
                     Margin="10"
                     BorderWidth="1"
-                    CornerRadius="25"
                     Padding="12"
-                    BackgroundColor="#27A9E1"
                     Command="{Binding EditGendersCOmmand}">
 
             </Button>
-            <Button Text="Delete" 
-                    TextColor="White" 
-                    FontSize="Medium"
+            <Button Style="{StaticResource ButtonDeleteStyle}"
+                    Text="Delete" 
                     Margin="10"
-                    BorderWidth="1"
-                    CornerRadius="25"
                     Padding="12"
-                    BackgroundColor="#d11a2a"
                     Command="{Binding DeleteGendersCOmmand}">
 
             </Button>
