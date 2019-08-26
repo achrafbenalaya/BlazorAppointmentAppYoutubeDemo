@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="New"
+             Visual="Material"
+             x:Class="PatientXamarinApp.Views.AddDoctorPage">
+
+
+    <Grid RowSpacing="8" >
+        <Grid.RowDefinitions>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <Entry x:Name="FirstName"
+                Grid.Row="0" Grid.Column="0" 
+               Grid.ColumnSpan="2" 
+               Placeholder="First Name" 
+                VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"/>
+
+
+        <Entry 
+             x:Name="LastName"
+             Grid.Row="1" 
+             Grid.Column="0"
+             Grid.ColumnSpan="2" 
+             Placeholder="Last Name" 
+             HorizontalOptions="FillAndExpand"/>
+
+        <Entry
+            x:Name="Email"
+                Grid.Row="2" 
+               Grid.Column="0" 
+               Placeholder="Email" 
+               HorizontalOptions="FillAndExpand"
+               Keyboard="Email"/>
+
+        <Entry  x:Name="Phone"
+                Grid.Row="2" 
+               Grid.Column="1" 
+               Placeholder="Phone"  
+                VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"/>
+
+        <Entry 
+                x:Name="Education"
+                Grid.Row="3" 
+               Grid.Column="0" 
+               Grid.ColumnSpan="2" 
+               Placeholder="Education"  
+               HorizontalOptions="FillAndExpand"/>
+
+        <Entry 
+                x:Name="Designation"
+                Grid.Row="4"
+               Grid.Column="0" 
+               Grid.ColumnSpan="2" 
+               Placeholder="Designation"  
+               HorizontalOptions="FillAndExpand"/>
+
+        <Label Grid.Row="5"
+              Grid.Column="0" 
+              Text="Gender" 
+             
+              VerticalOptions="CenterAndExpand" 
+              FontSize="Medium" 
+              HorizontalOptions="FillAndExpand">
+
+        </Label>
+        <Picker  SelectedIndexChanged="SelectedIndexChangegender"
+                Grid.Row="5" Grid.Column="1" 
+                ItemDisplayBinding="{Binding Name}"
+                x:Name="PickerGender" HorizontalOptions="FillAndExpand"/>
+
+
+        <Label 
+          
+                Grid.Row="6" 
+               Grid.Column="0" 
+               Text="Experience" 
+               VerticalOptions="CenterAndExpand" 
+               FontSize="Medium" 
+               HorizontalOptions="FillAndExpand">
+
+        </Label>
+        <Picker   x:Name="ExperiencePicker"
+                  SelectedIndexChanged="SelectedIndexChangeExperience"
+                Grid.Row="6" 
+                Grid.Column="1"   
+                  ItemDisplayBinding="{Binding Name}"
+                HorizontalOptions="FillAndExpand"/>
+
+        <Label Grid.Row="7" 
+               Grid.Column="0" 
+               Text="Department" 
+               VerticalOptions="CenterAndExpand" 
+               FontSize="Medium" 
+               HorizontalOptions="FillAndExpand"></Label>
+
+        <Picker
+            x:Name="deptpicker"
+                Grid.Row="7" 
+                Grid.Column="1"   
+            ItemDisplayBinding="{Binding Name}"
+            SelectedIndexChanged="SelectedIndexChangeDepartment"
+                HorizontalOptions="FillAndExpand"/>
+
+
+
+
+
+
+        <StackLayout  Grid.Row="8" Grid.ColumnSpan="2" 
+                      HorizontalOptions="FillAndExpand" 
+                      >
+
+
+            <Button 
+                
+                 Margin="8"
+                BorderRadius="20"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Clicked="SaveDoctor" 
+                Grid.ColumnSpan="2"  
+          
+              
+                Text="Register" 
+                TextColor="White" 
+                BackgroundColor="#03DAC6"/>
+
+        </StackLayout>
+     
+
+        <StackLayout Grid.Row="9" BackgroundColor="Red" 
+
+                     HorizontalOptions="FillAndExpand" 
+                     VerticalOptions="EndAndExpand"
+                    >
+
+            <Label  x:Name="GenderLabel" IsVisible="False" FontSize="0"
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="EndAndExpand"></Label>
+            <Label  x:Name="DepartmentLabel" IsVisible="False"
+                    
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="EndAndExpand"
+                    FontSize="0"></Label>
+            <Label x:Name="pickerexp" IsVisible="False" FontSize="0"
+                   
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="EndAndExpand"
+                   ></Label>
+        </StackLayout>
+
+    </Grid>
+
+
+
+
+
+</ContentPage>

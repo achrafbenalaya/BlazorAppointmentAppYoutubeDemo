@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Edit"
+             Visual="Material"
+             x:Class="PatientXamarinApp.Views.EditDoctorPage">
+
+
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+
+        <Frame HasShadow="false"
+               Padding="10"
+               BorderColor="LightCoral"
+               Margin="20,20,20,5"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+            <StackLayout>
+                <Label Text="&#xf0f0;" 
+                   FontSize="30"
+                   HeightRequest="30"
+                   TextColor="#15aabf"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="StartAndExpand">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font" 
+                                iOS="Font Awesome 5 Free" 
+                                WinPhone="Assets/Font Awesome 5 Free-Solid-900.otf#Font" />
+                    </Label.FontFamily>
+                </Label>
+
+                <StackLayout Orientation="Horizontal" >
+
+                    <Label  TextColor="Black"
+                            Text="{Binding TheSelectedDoctor.FirstName}"
+                            HorizontalTextAlignment="Center"
+                            IsEnabled="False"
+                            FontSize="Medium"
+                            HorizontalOptions="CenterAndExpand">
+
+                    </Label>
+
+
+
+                    <Label 
+                        TextColor="Black"
+                            Text="{Binding TheSelectedDoctor.LastName}"
+                            HorizontalTextAlignment="Center"
+                            IsEnabled="False"
+                            FontSize="Medium"
+                            HorizontalOptions="CenterAndExpand">
+
+                    </Label>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="FillAndExpand"
+                           >
+                    <Label Text="Email :" HorizontalOptions="CenterAndExpand">
+
+                    </Label>
+                    <Label Text="{Binding TheSelectedDoctor.Email}" 
+       HorizontalOptions="CenterAndExpand">
+
+                    </Label>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" 
+                             
+                             HorizontalOptions="FillAndExpand">
+
+                    <Label Text="Department :" 
+                           HorizontalOptions="CenterAndExpand"
+                           />
+
+
+                    <Label Text="{Binding TheSelectedDoctor.Department.Name}" 
+                           HorizontalOptions="CenterAndExpand"
+                         />
+
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" 
+                             
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Experience :" 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="EndAndExpand"/>
+                    <Label Text="{Binding TheSelectedDoctor.Experience.Name}" 
+                           HorizontalOptions="CenterAndExpand"
+                           />
+
+
+                </StackLayout>
+
+                <StackLayout Margin="0" 
+                             Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+
+                    <Label Text="Is Visible"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="Center"
+                           >
+
+                    </Label>
+
+
+                    <CheckBox IsEnabled="False" 
+                              HorizontalOptions="CenterAndExpand" 
+                              VerticalOptions="Start"
+                         IsChecked="{Binding TheSelectedDoctor.IsVisible}">
+
+                    </CheckBox>
+
+
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Added on" VerticalOptions="Center"></Label>
+                    <Label x:Name="AddedTimeStatic" Text="{Binding TheSelectedDoctor.Urd}"></Label>
+                </StackLayout>
+
+            </StackLayout>
+
+        </Frame>
+
+
+
+        <StackLayout
+            Grid.Row="1"
+            Padding="20"
+            Grid.ColumnSpan="2">
+
+
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Email" 
+                       VerticalOptions="EndAndExpand">
+
+                </Label>
+
+                <Entry Text="{Binding TheSelectedDoctor.Email}" 
+                       x:Name="GenderEntry"
+                       
+                       HorizontalOptions="FillAndExpand"
+                       >
+                </Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Label Text="Visibility"
+                       FontSize="16" 
+                       VerticalOptions="Center"
+                       TextColor="#75849D">
+
+                </Label>
+                <Switch IsToggled="{Binding TheSelectedDoctor.IsVisible}"
+                x:Name="SwitchVisible"    >
+                </Switch>
+            </StackLayout>
+
+
+            <Button Style="{StaticResource ButtonAEditStyle}"
+                    Text="Edit"
+                    Margin="10"
+                    BorderWidth="1"
+                    Padding="12"
+                    Command="{Binding EditDoctorCommand}">
+
+            </Button>
+            <Button Style="{StaticResource ButtonDeleteStyle}"
+                    Text="Delete" 
+                    Margin="10"
+                    Padding="12"
+                    Command="{Binding DeleteDoctorCommand}">
+
+            </Button>
+
+        </StackLayout>
+
+    </Grid>
+
+
+
+
+
+
+
+
+</ContentPage>

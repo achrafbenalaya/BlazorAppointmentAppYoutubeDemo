@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Doctors"
+             Visual="Material"
+             x:Class="PatientXamarinApp.Views.DoctorsPage">
+
+
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"  
+                     Clicked="MenuItem_OnClicked"
+                     />
+    </ContentPage.ToolbarItems>
+
+
+
+    <ListView
+    x:Name="BloodGroupsListView"
+    HasUnevenRows="True"
+    ItemsSource="{Binding _doctorsList}"
+    ItemTapped="DoctorsListView_OnItemTapped"
+    IsPullToRefreshEnabled="True"
+    RefreshCommand="{Binding GetDoctorsCommand}"
+    IsRefreshing="{Binding isRefresh}">
+        <ListView.Header>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="Name"  TextColor="Red" FontSize="Small" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Educat" TextColor="Red" FontSize="Small" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Desig" TextColor="Red" FontSize="Small" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Exper" TextColor="Red" FontSize="Small" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Depart" TextColor="Red" FontSize="Small" Grid.Column="4" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            </Grid>
+        </ListView.Header>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+
+
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding FirstName}" Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                        <Label Text="{Binding Education}"  Grid.Column="1"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Designation}"  Grid.Column="2"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Experience.Name}"  Grid.Column="3"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Department.Name}"   Grid.Column="4"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
+
+
+                    </Grid>
+
+
+                </ViewCell>
+
+
+            </DataTemplate>
+
+        </ListView.ItemTemplate>
+    </ListView>
+
+
+
+</ContentPage>

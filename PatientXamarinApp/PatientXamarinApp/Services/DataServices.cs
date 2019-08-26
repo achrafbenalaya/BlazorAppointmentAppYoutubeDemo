@@ -17,6 +17,7 @@ namespace PatientXamarinApp.Services
        private string ExperiencerUrl = Constants.ExperienceLink;
        private string DepartmentsUrl = Constants.DepartmentsLink;
        private string PatientsUrl = Constants.PatientsLink;
+       private string DoctorssUrl = Constants.DoctorsLink;
 
 
         #region Genders
@@ -325,7 +326,57 @@ namespace PatientXamarinApp.Services
         #endregion
 
 
+        #region Doctors
 
+        public async Task<List<Doctors>> GetDoctors()
+        {
+
+            var HttpClient = new HttpClient();
+            var Json = await HttpClient.GetStringAsync(DoctorssUrl);
+            var doctors = JsonConvert.DeserializeObject<List<Doctors>>(Json);
+
+            return doctors;
+        }
+
+
+        public async Task PostDoctors (Doctors _doctors)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(_doctors);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PostAsync(DoctorssUrl, content);
+
+
+        }
+
+
+
+
+        public async Task PutDoctors(int id, Doctors doctors)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(doctors);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(DoctorssUrl + id, content);
+
+        }
+
+        public async Task DeleteDoctor(int id)
+        {
+
+            var HttpClient = new HttpClient();
+            var responsen = await HttpClient.DeleteAsync(DoctorssUrl + id);
+
+        }
+
+
+        #endregion
 
 
 

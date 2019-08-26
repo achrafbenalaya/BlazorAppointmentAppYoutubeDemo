@@ -36,10 +36,10 @@ namespace PatientXamarinApp.Views
                         break;
 
                     case (int)MenuItemType.Doctor:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new DoctorsPage()));
                         break;
                     case (int)MenuItemType.Patient:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new PatientsPage()));
                         break;
                     case (int)MenuItemType.BloodGroup:
                         MenuPages.Add(id, new NavigationPage(new BloodGroupsPage()));
