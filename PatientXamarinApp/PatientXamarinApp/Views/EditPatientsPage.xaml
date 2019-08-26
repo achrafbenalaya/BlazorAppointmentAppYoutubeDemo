@@ -28,10 +28,10 @@
                Grid.Column="0"
                Grid.ColumnSpan="2">
             <StackLayout>
-                <Label Text="&#xf228;" 
+                <Label Text="&#xf728;" 
                    FontSize="30"
                    HeightRequest="30"
-                   TextColor="SkyBlue"
+                   TextColor="#15aabf"
                    VerticalOptions="Start" 
                    HorizontalOptions="StartAndExpand">
                     <Label.FontFamily>

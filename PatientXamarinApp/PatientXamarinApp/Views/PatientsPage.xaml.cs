@@ -19,14 +19,16 @@ namespace PatientXamarinApp.Views
         private DataServices _dataServices = new DataServices();
         public PatientsPage()
         {
-       
+            var TheViewModel = new PatientsViewModel();
 
+            BindingContext = TheViewModel;
+            
             InitializeComponent();
             var task = Task.Run(async () => await _dataServices.GetGenders());
             _Genders = task.Result;
             var task2 = Task.Run(async () => await _dataServices.GetBloodGroup());
             _BloodGroups = task2.Result;
-            //_Genders =  _dataServices.GetGenders().ConfigureAwait(false); ;
+
         }
 
         private async void GoToAddPatients(object sender, EventArgs e)

@@ -9,11 +9,11 @@
              Visual="Material"
              x:Class="PatientXamarinApp.Views.PatientsPage">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
 
         <viewModels:PatientsViewModel></viewModels:PatientsViewModel>
 
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
 
     <ContentPage.ToolbarItems>

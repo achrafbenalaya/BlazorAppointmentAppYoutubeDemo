@@ -14,6 +14,11 @@ namespace PatientXamarinApp.ViewModels
 
 
         private List<Patients> _patients;
+
+        //private List<Models.Genders> _Genders;
+        //private List<Models.BloodGroups> _BloodGroups;
+
+
         private DataServices _dataServices = new DataServices();
         private bool _isRefresh;
 
@@ -29,6 +34,34 @@ namespace PatientXamarinApp.ViewModels
 
             }
         }
+
+
+        //public List<Genders> _GendersList
+        //{
+        //    get { return _Genders; }
+        //    set
+        //    {
+
+        //        _Genders = value;
+
+        //        OnPropertyChanged();
+
+        //    }
+
+        //}
+        //public List<BloodGroups> _BloodGroupsList
+        //{
+        //    get { return _BloodGroups; }
+        //    set
+        //    {
+
+        //        _BloodGroups = value;
+
+        //        OnPropertyChanged();
+
+        //    }
+
+        //}
 
         public PatientsViewModel()
         {
@@ -61,7 +94,13 @@ namespace PatientXamarinApp.ViewModels
 
         {
             _patientsList = await _dataServices.GetPatients();
-            
+
+            //var task = Task.Run(async () => await _dataServices.GetGenders());
+            //_GendersList = task.Result;
+
+            //var task2 = Task.Run(async () => await _dataServices.GetBloodGroup());
+            //_BloodGroupsList = task2.Result;
+
         }
 
       

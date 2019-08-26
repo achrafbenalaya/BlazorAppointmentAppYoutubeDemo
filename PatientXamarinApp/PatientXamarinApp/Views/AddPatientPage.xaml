@@ -29,10 +29,10 @@
                Grid.Column="0"
                Grid.ColumnSpan="2">
             <StackLayout>
-                <Label Text="&#xf043;" 
+                <Label Text="&#xf728;" 
                    FontSize="30"
                    HeightRequest="30"
-                   TextColor="Red"
+                   TextColor="#15aabf"
                    VerticalOptions="Start" 
                    HorizontalOptions="StartAndExpand">
                     <Label.FontFamily>
@@ -43,21 +43,34 @@
                     </Label.FontFamily>
                 </Label>
 
-                <Label BindingContext="{x:Reference PatientEntry}" 
-                       HorizontalOptions="FillAndExpand" 
-                       IsEnabled="False" 
-                       TextColor="Black"
-                       Text="{Binding Text}"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Center">
+           <StackLayout Orientation="Horizontal">
 
-                </Label>
+               <Label BindingContext="{x:Reference PatientEntry}" 
+                      HorizontalOptions="FillAndExpand" 
+                      IsEnabled="False" 
+                      TextColor="Black"
+                      Text="{Binding Text}"
+                      
+                      FontSize="Medium"
+                      HorizontalTextAlignment="Center">
+
+               </Label>
+
+                    <Label BindingContext="{x:Reference PatientEntryLastName}" 
+                          HorizontalOptions="FillAndExpand" 
+                          IsEnabled="False" 
+                          TextColor="Black"
+                          Text="{Binding Text}"
+                         
+                          FontSize="Medium"
+                          HorizontalTextAlignment="Center"/>
+
+                </StackLayout>
 
                 <StackLayout Margin="5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Label Text="Is Visible"
                            VerticalOptions="Center"
-                        TextColor="#75849D"
-                           >
+                        TextColor="#75849D">
 
                     </Label>
                     <CheckBox IsEnabled="False" 
@@ -89,9 +102,11 @@
 
 
                 <Label Grid.Row="0" Grid.Column="0" 
+                       x:Name="FirstNameText"
                        Text="First Name" VerticalOptions="Center">
                 </Label>
                 <Entry Grid.Row="0" Grid.Column="1" 
+                     
                        Text="{Binding TheSelectedPatient.FirstName}" 
                        x:Name="PatientEntry"
                        Margin="10">
@@ -112,9 +127,6 @@
 
                 <Picker x:Name="PickerGender"
                         SelectedIndexChanged="PickerGender_OnSelectedIndexChanged"
-                        
-                       
-                        
                         Grid.Row="2" 
                         ItemDisplayBinding="{Binding Name}"
                         Grid.Column="1">
@@ -122,13 +134,12 @@
                 </Picker>
 
                 <Label Grid.Row="3" Grid.Column="0" 
-                       Text="Gender" VerticalOptions="Center"/>
+                       Text="Blood Type" VerticalOptions="Center"/>
 
                 <Picker x:Name="PickerBlood"
-                        
+                        Title="Select Blood Type"
                         
                         SelectedIndexChanged="PickerBlood_OnSelectedIndexChanged"
-
                         ItemDisplayBinding="{Binding Name}"
                         Grid.Row="3" Grid.Column="1">
 
@@ -162,7 +173,7 @@
             <Entry Keyboard="Numeric" 
                    Text="{Binding TheSelectedPatient.gendersId}"
                    
-                   IsVisible="True" 
+                   IsVisible="False" 
                    x:Name="BindingtheGender" 
                    TextColor="Black" 
                    BackgroundColor="Red">
@@ -171,16 +182,17 @@
 
 
             <Label Text="{Binding BloodGroupsId,Mode=OneWayToSource}"
-                   IsVisible="True"
+                   IsVisible="False"
                    x:Name="BindingthBloodItem"  
                    TextColor="Black"
                    BackgroundColor="Red"/>
-         
+
+            <!--Command="{Binding SendPatientsCommand}"-->
             <Button Style="{StaticResource ButtonAddStyle}"
                     Text="Add" 
                     Margin="10"
                     Padding="15"
-                    Command="{Binding SendPatientsCommand}">
+                    Clicked="SavePatient">
 
             </Button>
 

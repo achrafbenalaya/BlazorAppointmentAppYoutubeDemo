@@ -14,31 +14,18 @@ namespace PatientXamarinApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddPatientPage : ContentPage
     {
-        //private List<Models.Genders> _Genders;
-        //private List<Models.BloodGroups> _BloodGroups;
-        //private DataServices _dataServices = new DataServices();
-
+        private DataServices _dataServices = new DataServices();
         public AddPatientPage(List<Models.Genders> genderses, List<Models.BloodGroups> bloodGroupsesList)
         {
-            //_Genders =  _dataServices.GetGenders();
+
             var TheViewModel = new AddPatientsViewModel();
-            //var _BloodGroupss = new List<BloodGroups>();
+
             BindingContext = TheViewModel;
 
-            //var monkeyList = new List<string>();
-            //monkeyList.Add("Baboon");
-            //monkeyList.Add("Capuchin Monkey");
-            //monkeyList.Add("Blue Monkey");
-
-            //PickerGender.ItemDisplayBinding = genderses.Select(x =>x.Name ).First();
 
             InitializeComponent();
 
-
-
-
             PickerGender.ItemsSource = genderses.ToList();
-
             PickerBlood.ItemsSource = bloodGroupsesList.ToList();
 
         }
@@ -58,7 +45,7 @@ namespace PatientXamarinApp.Views
             }
             else
             {
-                var selectedId = (Models.Genders) PickerGender.SelectedItem;
+                var selectedId = (Models.Genders)PickerGender.SelectedItem;
                 BindingtheGender.Text = selectedId.GendersId.ToString();
                 //PickerGender.SelectedItem = selectedId.GendersId;
             }
@@ -68,10 +55,29 @@ namespace PatientXamarinApp.Views
         {
 
             {
-                var selectedId = (Models.BloodGroups) PickerBlood.SelectedItem;
+                var selectedId = (Models.BloodGroups)PickerBlood.SelectedItem;
                 BindingthBloodItem.Text = selectedId.BloodGroupsId.ToString();
                 //PickerBlood.SelectedItem = selectedId.BloodGroupsId;
             }
+        }
+
+        private async void SavePatient(object sender, EventArgs e)
+        {
+            Patients NewPatients = new Patients();
+            NewPatients.Birthday = "";
+            NewPatients.Email = "";
+            NewPatients.FirstName = PatientEntry.Text;
+            NewPatients.LastName = PatientEntryLastName.Text;
+            NewPatients.PhoneNumber ="" ;
+            NewPatients.Symptoms ="" ;
+            NewPatients.BloodGroupsId =Int32.Parse(BindingthBloodItem.Text) ;
+            NewPatients.GendersId = Int32.Parse(BindingtheGender.Text);
+            NewPatients.IsVisible = bool.Parse(SwitchVisible.IsToggled.ToString());
+            NewPatients.Urd = System.DateTime.Now.ToShortDateString();
+
+          await _dataServices.PostPatients(NewPatients);
+
+
         }
     }
 }
