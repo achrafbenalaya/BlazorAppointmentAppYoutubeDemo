@@ -36,7 +36,7 @@ namespace PatientXamarinApp.Views
             NewDoctors.PhoneNumber = Phone.Text;
             NewDoctors.Email = Email.Text;
             NewDoctors.Education = Education.Text;
-            NewDoctors.Designation = Designation.Text;
+            NewDoctors.Designation = "";
             NewDoctors.GendersId = Int32.Parse(GenderLabel.Text);
             NewDoctors.ExperienceId = Int32.Parse(pickerexp.Text);
             NewDoctors.DepartmentsId = Int32.Parse(DepartmentLabel.Text);

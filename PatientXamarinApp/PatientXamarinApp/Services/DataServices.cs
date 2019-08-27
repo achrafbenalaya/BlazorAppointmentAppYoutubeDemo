@@ -18,7 +18,7 @@ namespace PatientXamarinApp.Services
        private string DepartmentsUrl = Constants.DepartmentsLink;
        private string PatientsUrl = Constants.PatientsLink;
        private string DoctorssUrl = Constants.DoctorsLink;
-
+       private string AppointmenUrl = Constants.AppointmentLink;
 
         #region Genders
 
@@ -380,8 +380,57 @@ namespace PatientXamarinApp.Services
 
 
 
+        #region Appointment
+
+        public async Task<List<Appointment>> GetAppointment()
+        {
+
+            var HttpClient = new HttpClient();
+            var Json = await HttpClient.GetStringAsync(AppointmenUrl);
+            var appointment = JsonConvert.DeserializeObject<List<Appointment>>(Json);
+
+            return appointment;
+        }
 
 
+        public async Task PostAppointment(Appointment _Appointment)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(_Appointment);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PostAsync(AppointmenUrl, content);
+
+
+        }
+
+
+
+
+        public async Task PutAppointment(int id, Appointment appointment)
+
+        {
+
+            var httpClient = new HttpClient();
+            var jsonObject = JsonConvert.SerializeObject(appointment);
+            StringContent content = new StringContent(jsonObject);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(AppointmenUrl + id, content);
+
+        }
+
+        public async Task DeleteAppointment(int id)
+        {
+
+            var HttpClient = new HttpClient();
+            var responsen = await HttpClient.DeleteAsync(AppointmenUrl + id);
+
+        }
+
+
+        #endregion
 
     }
 }

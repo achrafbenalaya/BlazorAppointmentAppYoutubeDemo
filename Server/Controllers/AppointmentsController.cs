@@ -25,7 +25,10 @@ namespace achraf.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Appointment>>> GetAppointment()
         {
-            return await _context.Appointment.ToListAsync();
+            return await _context.Appointment.Include(pat=>pat.Patients)
+                .Include(Dept=>Dept.Departments)
+                .Include(doct=>doct.Doctors)
+                .ToListAsync();
         }
 
         // GET: api/Appointments/5

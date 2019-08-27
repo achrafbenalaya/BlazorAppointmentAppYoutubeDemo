@@ -14,8 +14,8 @@ namespace PatientXamarinApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-             MainPage = new MainPage();
-           //MainPage = new NavigationPage(new DoctorsPage()); 
+            // MainPage = new MainPage();
+           MainPage = new NavigationPage(new AppointmentsPage()); 
             //MainPage = new NavigationPage(new testpicker()); 
         }
 

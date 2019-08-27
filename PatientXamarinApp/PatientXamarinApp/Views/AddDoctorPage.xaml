@@ -9,7 +9,7 @@
              x:Class="PatientXamarinApp.Views.AddDoctorPage">
 
 
-    <Grid RowSpacing="8" >
+    <Grid RowSpacing="8" Margin="10" >
         <Grid.RowDefinitions>
 
         </Grid.RowDefinitions>
@@ -58,15 +58,15 @@
                Placeholder="Education"  
                HorizontalOptions="FillAndExpand"/>
 
-        <Entry 
+        <!--<Entry 
                 x:Name="Designation"
                 Grid.Row="4"
                Grid.Column="0" 
                Grid.ColumnSpan="2" 
                Placeholder="Designation"  
-               HorizontalOptions="FillAndExpand"/>
+               HorizontalOptions="FillAndExpand"/>-->
 
-        <Label Grid.Row="5"
+        <Label Grid.Row="4"
               Grid.Column="0" 
               Text="Gender" 
              
@@ -76,14 +76,14 @@
 
         </Label>
         <Picker  SelectedIndexChanged="SelectedIndexChangegender"
-                Grid.Row="5" Grid.Column="1" 
+                Grid.Row="4" Grid.Column="1" 
                 ItemDisplayBinding="{Binding Name}"
                 x:Name="PickerGender" HorizontalOptions="FillAndExpand"/>
 
 
         <Label 
           
-                Grid.Row="6" 
+                Grid.Row="5" 
                Grid.Column="0" 
                Text="Experience" 
                VerticalOptions="CenterAndExpand" 
@@ -93,12 +93,12 @@
         </Label>
         <Picker   x:Name="ExperiencePicker"
                   SelectedIndexChanged="SelectedIndexChangeExperience"
-                Grid.Row="6" 
+                Grid.Row="5" 
                 Grid.Column="1"   
                   ItemDisplayBinding="{Binding Name}"
                 HorizontalOptions="FillAndExpand"/>
 
-        <Label Grid.Row="7" 
+        <Label Grid.Row="6" 
                Grid.Column="0" 
                Text="Department" 
                VerticalOptions="CenterAndExpand" 
@@ -107,7 +107,7 @@
 
         <Picker
             x:Name="deptpicker"
-                Grid.Row="7" 
+                Grid.Row="6" 
                 Grid.Column="1"   
             ItemDisplayBinding="{Binding Name}"
             SelectedIndexChanged="SelectedIndexChangeDepartment"
@@ -138,28 +138,26 @@
                 BackgroundColor="#03DAC6"/>
 
         </StackLayout>
-     
-
-        <StackLayout Grid.Row="9" BackgroundColor="Red" 
-
-                     HorizontalOptions="FillAndExpand" 
-                     VerticalOptions="EndAndExpand"
-                    >
+        <StackLayout Grid.Row="7" 
+                     BackgroundColor="Red"
+                     Grid.ColumnSpan="2" 
+                     VerticalOptions="StartAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     >
 
             <Label  x:Name="GenderLabel" IsVisible="False" FontSize="0"
-                    HorizontalOptions="FillAndExpand" 
-                    VerticalOptions="EndAndExpand"></Label>
+                   BackgroundColor="Yellow"></Label>
             <Label  x:Name="DepartmentLabel" IsVisible="False"
-                    
-                    HorizontalOptions="FillAndExpand" 
-                    VerticalOptions="EndAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                 
                     FontSize="0"></Label>
             <Label x:Name="pickerexp" IsVisible="False" FontSize="0"
                    
-                   HorizontalOptions="FillAndExpand" 
-                   VerticalOptions="EndAndExpand"
+                  
                    ></Label>
         </StackLayout>
+
+
 
     </Grid>
 
