@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="New"
+             x:Class="PatientXamarinApp.Views.AddAppointmentPage">
+
+
+    <Grid   Margin="20" Padding="15">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Text="Patient " Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalOptions="Center" ></Label>
+        <Picker ItemDisplayBinding="{Binding FirstName}" x:Name="PatientName" Grid.Row="0" Grid.Column="1"  SelectedIndexChanged="SelectedIndexPatientChangegender"></Picker>
+
+        <Label Text="Department " Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalOptions="Center"></Label>
+        <Picker ItemDisplayBinding="{Binding Name}" x:Name="DepartmentName" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="SelectedIndexDepartmentChangegender"></Picker>
+
+
+        <Label Text="Doctor" Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalOptions="Center">
+        </Label>
+        <Picker ItemDisplayBinding="{Binding FirstName}" x:Name="DoctortName" Grid.Row="2" Grid.Column="1" SelectedIndexChanged="SelectedIndexDoctorChangegender"></Picker>
+
+        <Label Text="Symptoms" Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalOptions="Center">
+        </Label>
+        <Editor  x:Name="SymptomsName"  Grid.Row="3" Grid.Column="1" ></Editor>
+
+
+        <Label Text="Day" Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalOptions="Center">
+        </Label>
+        <DatePicker  x:Name="DateName"  
+
+                     Grid.Row="4" 
+                     Grid.Column="1" Format="dd/mm/yyyy"></DatePicker>
+
+        <StackLayout Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="Start"
+                     HorizontalOptions="Start" Grid.Column="0" 
+                     Orientation="Horizontal" 
+                     IsVisible="False">
+
+            <Label x:Name="PatientPickerId" Text=""></Label>
+            <Label  x:Name="DepartmentPickerId" Text=""></Label>
+            <Label  x:Name="DoctorPickerId" Text=""></Label>
+        </StackLayout>
+
+
+
+        <Button Style="{StaticResource ButtonAddStyle}"
+                Text="confirm" Grid.Column="0"
+                Grid.Row="6" Clicked="PostAppointment"
+                Grid.ColumnSpan="2" 
+                HorizontalOptions="FillAndExpand" 
+                Margin="10"></Button>
+    </Grid>
+
+
+</ContentPage>

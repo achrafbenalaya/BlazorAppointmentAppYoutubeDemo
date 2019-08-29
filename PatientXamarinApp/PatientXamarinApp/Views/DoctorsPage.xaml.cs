@@ -27,7 +27,7 @@ namespace PatientXamarinApp.Views
 
 
             var task = Task.Run(async () => await _dataServices.GetGenders());
-            _Genders = task.Result;
+             _Genders = task.Result;
             var task2 = Task.Run(async () => await _dataServices.GetDepartments());
             _Departments = task2.Result;
 

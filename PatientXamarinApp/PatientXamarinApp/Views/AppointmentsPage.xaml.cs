@@ -25,23 +25,25 @@ namespace PatientXamarinApp.Views
             InitializeComponent();
 
 
-            //var task = Task.Run(async () => await _dataServices.GetGenders());
-            //_Genders = task.Result;
-            //var task2 = Task.Run(async () => await _dataServices.GetDepartments());
-            //_Departments = task2.Result;
+            var task = Task.Run(async () => await _dataServices.GetPatients());
+            _Patients = task.Result;
+            var task2 = Task.Run(async () => await _dataServices.GetDepartments());
+            _Departments = task2.Result;
 
-            //var task3 = Task.Run(async () => await _dataServices.GetExperience());
-            //_Experience = task3.Result;
+            var task3 = Task.Run(async () => await _dataServices.GetDoctors());
+            _Doctors = task3.Result;
         }
 
-        private void MenuItem_OnClicked(object sender, EventArgs e)
+        private async  void MenuItem_OnClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           await Navigation.PushAsync(new AddAppointmentPage(_Patients, _Departments, _Doctors));
+    
         }
 
         private void AppointmentListView_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            throw new NotImplementedException();
+            var _appoint= e.Item as Models.Appointment;
+            Navigation.PushAsync(new EditAppointmentPage(_appoint));
         }
     }
 }

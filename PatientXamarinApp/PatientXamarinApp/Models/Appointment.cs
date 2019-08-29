@@ -20,6 +20,8 @@ namespace PatientXamarinApp.Models
         public bool IsVisible { get; set; }
         public string Urd { get; set; }
 
+        
+
 
     }
 }

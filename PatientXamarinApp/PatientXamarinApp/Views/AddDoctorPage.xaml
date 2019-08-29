@@ -11,7 +11,6 @@
 
     <Grid RowSpacing="8" Margin="10" >
         <Grid.RowDefinitions>
-
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -69,7 +68,6 @@
         <Label Grid.Row="4"
               Grid.Column="0" 
               Text="Gender" 
-             
               VerticalOptions="CenterAndExpand" 
               FontSize="Medium" 
               HorizontalOptions="FillAndExpand">
@@ -83,7 +81,7 @@
 
         <Label 
           
-                Grid.Row="5" 
+               Grid.Row="5" 
                Grid.Column="0" 
                Text="Experience" 
                VerticalOptions="CenterAndExpand" 
@@ -93,10 +91,10 @@
         </Label>
         <Picker   x:Name="ExperiencePicker"
                   SelectedIndexChanged="SelectedIndexChangeExperience"
-                Grid.Row="5" 
-                Grid.Column="1"   
+                  Grid.Row="5" 
+                  Grid.Column="1"   
                   ItemDisplayBinding="{Binding Name}"
-                HorizontalOptions="FillAndExpand"/>
+                  HorizontalOptions="FillAndExpand"/>
 
         <Label Grid.Row="6" 
                Grid.Column="0" 
@@ -107,32 +105,23 @@
 
         <Picker
             x:Name="deptpicker"
-                Grid.Row="6" 
-                Grid.Column="1"   
+            Grid.Row="6" 
+            Grid.Column="1"   
             ItemDisplayBinding="{Binding Name}"
             SelectedIndexChanged="SelectedIndexChangeDepartment"
-                HorizontalOptions="FillAndExpand"/>
-
-
-
-
-
+            HorizontalOptions="FillAndExpand"/>
 
         <StackLayout  Grid.Row="8" Grid.ColumnSpan="2" 
-                      HorizontalOptions="FillAndExpand" 
-                      >
+                      HorizontalOptions="FillAndExpand">
 
 
             <Button 
-                
-                 Margin="8"
+                Margin="8"
                 BorderRadius="20"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 Clicked="SaveDoctor" 
                 Grid.ColumnSpan="2"  
-          
-              
                 Text="Register" 
                 TextColor="White" 
                 BackgroundColor="#03DAC6"/>
@@ -142,27 +131,18 @@
                      BackgroundColor="Red"
                      Grid.ColumnSpan="2" 
                      VerticalOptions="StartAndExpand"
-                     HorizontalOptions="FillAndExpand"
-                     >
+                     HorizontalOptions="FillAndExpand">
 
             <Label  x:Name="GenderLabel" IsVisible="False" FontSize="0"
                    BackgroundColor="Yellow"></Label>
             <Label  x:Name="DepartmentLabel" IsVisible="False"
                      HorizontalOptions="CenterAndExpand"
-                 
-                    FontSize="0"></Label>
-            <Label x:Name="pickerexp" IsVisible="False" FontSize="0"
-                   
-                  
-                   ></Label>
+                     FontSize="0"></Label>
+            <Label x:Name="pickerexp" IsVisible="False" FontSize="0">
+
+            </Label>
         </StackLayout>
 
-
-
     </Grid>
-
-
-
-
 
 </ContentPage>

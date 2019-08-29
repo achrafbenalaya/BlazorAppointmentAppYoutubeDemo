@@ -71,7 +71,6 @@
                         <Label Text="{Binding Departments.Name}"  Grid.Column="2"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
                         <Label Text="{Binding Day}"   Grid.Column="3"  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center"></Label>
 
-
                     </Grid>
 
 

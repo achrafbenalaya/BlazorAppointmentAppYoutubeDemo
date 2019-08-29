@@ -32,7 +32,7 @@ namespace PatientXamarinApp.Views
                 {
 
                     case (int)MenuItemType.Appointment:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new AppointmentsPage()));
                         break;
 
                     case (int)MenuItemType.Doctor:
@@ -54,9 +54,9 @@ namespace PatientXamarinApp.Views
                         MenuPages.Add(id, new NavigationPage(new Genders()));
                         break;
 
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
+                    //case (int)MenuItemType.Browse:
+                    //    MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                    //    break;
 
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));

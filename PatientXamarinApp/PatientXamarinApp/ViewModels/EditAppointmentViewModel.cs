@@ -17,7 +17,7 @@ namespace PatientXamarinApp.ViewModels
 
         {
             TheSelectedAppointments.Urd = System.DateTime.Now.ToShortDateString();
-            await _dataServices.PutAppointment(TheSelectedAppointments.DoctorsId, TheSelectedAppointments);
+            await _dataServices.PutAppointment(TheSelectedAppointments.AppointmentId, TheSelectedAppointments);
 
 
         });
@@ -25,7 +25,7 @@ namespace PatientXamarinApp.ViewModels
         public ICommand DeleteAppointmentCommand => new Command(async () =>
 
         {
-            await _dataServices.DeleteAppointment(TheSelectedAppointments.DoctorsId);
+            await _dataServices.DeleteAppointment(TheSelectedAppointments.AppointmentId);
         });
 
 
