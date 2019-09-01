@@ -28,7 +28,7 @@ namespace PatientXamarinApp.Views
                 new HomeMenuItem {Id = MenuItemType.Department, Title="Department" },
                 new HomeMenuItem {Id = MenuItemType.Gender, Title="Gender" },
                 new HomeMenuItem {Id = MenuItemType.BloodGroup, Title="BloodGroup" },
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                //new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

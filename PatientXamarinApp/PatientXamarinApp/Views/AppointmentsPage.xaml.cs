@@ -25,12 +25,12 @@ namespace PatientXamarinApp.Views
             InitializeComponent();
 
 
-            var task = Task.Run(async () => await _dataServices.GetPatients());
+            var task = Task.Run(async () => await _dataServices.GetPatients().ConfigureAwait(false));
             _Patients = task.Result;
-            var task2 = Task.Run(async () => await _dataServices.GetDepartments());
+            var task2 = Task.Run(async () => await _dataServices.GetDepartments().ConfigureAwait(false));
             _Departments = task2.Result;
 
-            var task3 = Task.Run(async () => await _dataServices.GetDoctors());
+            var task3 = Task.Run(async () => await _dataServices.GetDoctors().ConfigureAwait(false));
             _Doctors = task3.Result;
         }
 

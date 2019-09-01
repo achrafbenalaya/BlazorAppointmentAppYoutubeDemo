@@ -19,7 +19,6 @@ namespace PatientXamarinApp.ViewModels
             TheSelectedGender.Urd = System.DateTime.Now.ToShortDateString();
             await _dataServices.PutGenders(TheSelectedGender.GendersId, TheSelectedGender);
 
-
         });
 
 

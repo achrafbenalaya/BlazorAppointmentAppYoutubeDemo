@@ -21,7 +21,7 @@ namespace PatientXamarinApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+         //   MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -59,6 +59,11 @@ namespace PatientXamarinApp.Views
                     //    break;
 
                     case (int)MenuItemType.About:
+                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;
+
+
+                    default:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                 }
